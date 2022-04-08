@@ -1,13 +1,919 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.App {
+  font-family: Marker Felt, fantasy;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: teal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: Marker Felt, fantasy;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: teal;
+  outline: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  html {
+    transform: rotate(270deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-family: Marker Felt, fantasy;
+  }
+}
+
+.word {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: Marker Felt, fantasy;
+}
+
+.parent_div {
+  position: relative;
+}
+
+.blurredWord {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: Marker Felt, fantasy;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.selectedWord {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: Marker Felt, fantasy;
+}
+
+.innerLetter {
+  display: inline-block;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+  overflow: hidden;
+  font-size: 1.5em;
+  pointer-events: none;
+  font-family: Marker Felt, fantasy;
+}
+
+.price {
+  margin-top: 5px;
+  font-size: 1em;
+  pointer-events: none;
+  font-family: Marker Felt, fantasy;
+}
+
+.spacekey {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  /* padding: 5px; */
+  margin-right: 0.5px;
+  margin-left: 0.5px;
+  margin-top: 0.5px;
+  margin-bottom: 0.5px;
+  border-radius: 5px;
+  height: 6vh;
+  width: 35vw;
+  /* font-size: medium; */
+  /* height: 50px;
+  width: 34px; */
+  background-color: white;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  color: rgb(37, 38, 51);
+  font-weight: bold;
+  font-family: Marker Felt, fantasy;
+}
+
+.backspace {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  /* padding: 5px; */
+  margin-right: 0.5px;
+  margin-left: 0.5px;
+  margin-top: 0.5px;
+  margin-bottom: 0.5px;
+  border-radius: 5px;
+  height: 6vh;
+  width: 30vw;
+  /* font-size: medium; */
+  /* height: 50px;
+  width: 34px; */
+  background-color: white;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  color: rgb(37, 38, 51);
+  font-weight: bold;
+  font-family: Marker Felt, fantasy;
+}
+
+.key {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: none;
+  /* padding: 5px; */
+  margin-right: 0.5px;
+  margin-left: 0.5px;
+  margin-top: 0.5px;
+  margin-bottom: 0.5px;
+  border-radius: 5px;
+  height: 7vh;
+  width: 9.3vw;
+  /* font-size: medium; */
+  /* height: 50px;
+  width: 34px; */
+  background-color: white;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  color: rgb(37, 38, 51);
+  font-weight: bold;
+  font-family: Marker Felt, fantasy;
+}
+
+.selectedWrongKey {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border: none;
+  margin-right: 0.5px;
+  margin-left: 0.5px;
+  margin-top: 0.5px;
+  margin-bottom: 0.5px;
+  border-radius: 5px;
+  height: 7vh;
+  width: 9.3vw;
+  /* height: 50px;
+  width: 34px; */
+  background-color: grey;
+  opacity: 65%;
+  pointer-events: none;
+  font-weight: bold;
+  pointer-events: none;
+  font-family: Marker Felt, fantasy;
+}
+
+.selectedCorrectKey {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  margin-right: 1px;
+  margin-left: 1px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border-radius: 5px;
+  background-color: green;
+}
+
+/* .wordContainer{
+  border: 4px solid rgb(4, 3, 32);
+  border-radius: 5px;
+
+} */
+
+.letter {
+  border: 3px solid white;
+  font-size: 2em;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  /* width: 15vw;
+  height: 5vh; */
+  width: 100%;
+  height: 40px;
+  color: #091b31;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 1s;
+  transform: rotateY(360deg);
+  font-family: Marker Felt, fantasy;
+}
+
+.hiddenLetter {
+  border: 3px solid white;
+  font-size: 2em;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  /* width: 45px; */
+  width: 100%;
+  height: 40px;
+  /* width: 15vw;
+  height: 5vh; */
+  color: transparent;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  border-radius: 5px;
+  transition: transform 0.25s ease-in-out;
+  transform: rotateY(180deg);
+}
+
+.inputGuess {
+  font-family: Marker Felt, fantasy;
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  outline: none;
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  width: 90%;
+  color: #101825;
+  border-bottom: 3px solid rgb(185, 183, 183);
+}
+::placeholder {
+  color: rgb(185, 183, 183);
+  opacity: 50%;
+  font-size: 1em;
+}
+:focus {
+  border-bottom: 3px solid #1c2430;
+}
+
+input[type="text"][disabled] {
+  opacity: 100%;
+  color: rgb(185, 183, 183);
+  width: 90%;
+  /* color: #101825; */
+  /* -webkit-text-fill-color: #101825; */
+}
+
+.inputWord {
+  font-family: Marker Felt, fantasy;
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  outline: none;
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  width: 98%;
+  color: #101825;
+  border-bottom: 3px solid rgb(185, 183, 183);
+}
+::placeholder {
+  color: #101825;
+  opacity: 50%;
+  font-size: 1em;
+}
+:focus {
+  border-bottom: 3px solid #1c2430;
+}
+
+.wrongWord {
+  font-family: Marker Felt, fantasy;
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  outline: none;
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  width: 98%;
+  color: rgba(141, 33, 33, 0.973);
+  border-bottom: 3px solid rgba(141, 33, 33, 0.973);
+  /* background: rgb(26, 26, 26); */
+  /* text-shadow: rgba(255, 255, 255, 0.808) 0px 0px 15px,
+    rgba(255, 255, 255, 0.5) 0px 0px 10px;
+  --darkreader-inline-color: rgba(232, 230, 227, 0.514);
+  --darkreader-inline-bgimage: initial;
+  --darkreader-inline-bgcolor: #141516; */
+  animation: shake 0.1s infinite;
+}
+
+.noLine {
+  font-family: Marker Felt, fantasy;
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  outline: none;
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  width: 98%;
+  color: #101825;
+}
+::placeholder {
+  color: rgb(185, 183, 183);
+  opacity: 50%;
+  font-size: 1em;
+}
+
+.wrongGuess {
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  outline: none;
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  width: 90%;
+  /* color: #921212; */
+  border-bottom: 3px solid #921212;
+  /* animation: shake 0.2s infinite; */
+  font-family: Marker Felt, fantasy;
+}
+
+.moneyHintLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@keyframes shake {
+  0% {
+    margin-left: 0rem;
+  }
+  25% {
+    margin-left: 0.3rem;
+  }
+  75% {
+    margin-left: -0.3rem;
+  }
+  100% {
+    margin-left: 0rem;
+  }
+}
+
+.shake {
+  animation: shake 0.2s infinite;
+  color: rgb(88, 0, 0);
+}
+
+.header {
+  text-transform: uppercase;
+  word-break: break-all;
+  font-size: 3.8em;
+  font-smooth: always;
+  color: rgba(22, 32, 55, 0.973);
+  /* background: rgb(26, 26, 26); */
+  text-shadow: rgba(255, 255, 255, 0.808) 0px 0px 15px,
+    rgba(255, 255, 255, 0.5) 0px 0px 10px;
+  --darkreader-inline-color: rgba(232, 230, 227, 0.514);
+  --darkreader-inline-bgimage: initial;
+  --darkreader-inline-bgcolor: #141516;
+  font-family: Marker Felt, fantasy;
+}
+
+h1 {
+  text-transform: uppercase;
+  word-break: break-all;
+  font-size: 2em;
+  font-smooth: always;
+  color: rgba(22, 32, 55, 0.973);
+  /* background: rgb(26, 26, 26); */
+  text-shadow: rgba(255, 255, 255, 0.808) 0px 0px 15px,
+    rgba(255, 255, 255, 0.5) 0px 0px 10px;
+  --darkreader-inline-color: rgba(232, 230, 227, 0.514);
+  --darkreader-inline-bgimage: initial;
+  --darkreader-inline-bgcolor: #141516;
+  font-family: Marker Felt, fantasy;
+}
+
+h5 {
+  font-family: Marker Felt, fantasy;
+
+  line-height: 0;
+  text-transform: uppercase;
+  /* word-break: break-all; */
+  font-size: 1em;
+  font-smooth: always;
+  color: rgba(22, 32, 55, 0.973);
+  /* background: rgb(26, 26, 26); */
+  text-shadow: rgba(255, 255, 255, 0.808) 0px 0px 15px,
+    rgba(255, 255, 255, 0.5) 0px 0px 10px;
+  --darkreader-inline-color: rgba(232, 230, 227, 0.514);
+  --darkreader-inline-bgimage: initial;
+  --darkreader-inline-bgcolor: #141516;
+}
+
+h4 {
+  font-family: Marker Felt, fantasy;
+
+  text-transform: uppercase;
+  /* word-break: break-all; */
+  font-size: 2em;
+  padding: none;
+  font-smooth: always;
+  color: rgba(22, 32, 55, 0.973);
+  /* background: rgb(26, 26, 26); */
+  text-shadow: rgba(255, 255, 255, 0.808) 0px 0px 15px,
+    rgba(255, 255, 255, 0.5) 0px 0px 10px;
+  --darkreader-inline-color: rgba(232, 230, 227, 0.514);
+  --darkreader-inline-bgimage: initial;
+  --darkreader-inline-bgcolor: #141516;
+}
+
+.tries {
+  font-family: Marker Felt, fantasy;
+
+  text-transform: uppercase;
+  /* word-break: break-all; */
+  font-size: 2em;
+  padding: none;
+  font-smooth: always;
+  color: rgba(22, 32, 55, 0.973);
+  /* background: rgb(26, 26, 26); */
+  text-shadow: rgba(255, 255, 255, 0.808) 0px 0px 15px,
+    rgba(255, 255, 255, 0.5) 0px 0px 10px;
+  --darkreader-inline-color: rgba(232, 230, 227, 0.514);
+  --darkreader-inline-bgimage: initial;
+  --darkreader-inline-bgcolor: #141516;
+  font-weight: bold;
+  padding: 15px;
+}
+
+.cantAfford {
+  transition: all smooth;
+  font-family: Marker Felt, fantasy;
+  text-transform: uppercase;
+  /* word-break: break-all; */
+  font-size: 2em;
+  padding: none;
+  font-smooth: always;
+  color: rgba(141, 33, 33, 0.973);
+  /* background: rgb(26, 26, 26); */
+  text-shadow: rgba(255, 255, 255, 0.808) 0px 0px 15px,
+    rgba(255, 255, 255, 0.5) 0px 0px 10px;
+  --darkreader-inline-color: rgba(232, 230, 227, 0.514);
+  --darkreader-inline-bgimage: initial;
+  --darkreader-inline-bgcolor: #141516;
+  font-weight: bold;
+  padding: 15px;
+  animation: shake 0.1s infinite;
+}
+
+.tooMuch {
+  color: rgba(141, 33, 33, 0.973);
+  margin-top: 5px;
+  font-size: 1em;
+  pointer-events: none;
+  font-family: Marker Felt, fantasy;
+  animation: shake 0.1s infinite;
+}
+
+h3 {
+  font-family: Marker Felt, fantasy;
+
+  text-transform: uppercase;
+  /* word-break: break-all; */
+  font-size: 1.5em;
+  padding: none;
+  font-smooth: always;
+  color: rgba(22, 32, 55, 0.973);
+  /* background: rgb(26, 26, 26); */
+  text-shadow: rgba(255, 255, 255, 0.808) 0px 0px 15px,
+    rgba(255, 255, 255, 0.5) 0px 0px 10px;
+  --darkreader-inline-color: rgba(232, 230, 227, 0.514);
+  --darkreader-inline-bgimage: initial;
+  --darkreader-inline-bgcolor: #141516;
+}
+
+.hint {
+  font-family: Marker Felt, fantasy;
+
+  text-transform: uppercase;
+  /* word-break: break-all; */
+  font-size: 1em;
+  padding: none;
+  font-smooth: always;
+  font-weight: bold;
+  margin-top: 2.7vh;
+  color: rgba(22, 32, 55, 0.973);
+  /* background: rgb(26, 26, 26); */
+  text-shadow: rgba(255, 255, 255, 0.808) 0px 0px 15px,
+    rgba(255, 255, 255, 0.5) 0px 0px 10px;
+  --darkreader-inline-color: rgba(232, 230, 227, 0.514);
+  --darkreader-inline-bgimage: initial;
+  --darkreader-inline-bgcolor: #141516;
+}
+
+.hint:hover {
+  color: rgba(22, 32, 55, 0.973);
+  transition: all 1s;
+}
+
+.buttons {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.pushy__btn {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: auto;
+  margin-right: 5px;
+  margin-left: 5px;
+  /* margin-top: 15px; */
+  font-family: Marker Felt, fantasy;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-rendering: optimizeLegibility;
+  display: inline-block;
+  border: none;
+  /* background: rgb(37, 38, 51); */
+  background-color: #1c2430;
+  border-radius: 0.3em;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  /* color: rgb(37, 38, 51); */
+  color: white;
+  cursor: pointer;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.5em 1.5em 0.75em;
+  position: relative;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.pushy__btn:active {
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+  /* margin-top: 0.25em;
+  padding-bottom: 0.5em; */
+}
+
+.pushy__btn:active,
+.pushy__btn:focus {
+  outline: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.hint__btn {
+  transition: opacity 0.5s ease-out;
+
+  font-family: Marker Felt, fantasy;
+  opacity: 50%;
+  -webkit-font-smoothing: antialiased;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: auto;
+  margin-right: 5px;
+  margin-left: 5px;
+  /* margin-top: 15px; */
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-rendering: optimizeLegibility;
+  display: inline-block;
+  border: none;
+  /* background: rgb(37, 38, 51); */
+  background-color: #1c2430;
+  border-radius: 0.3em;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  /* color: rgb(37, 38, 51); */
+  color: white;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.5em 1.5em 0.75em;
+  position: relative;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.hint__btn:active {
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+  /* margin-top: 0.25em;
+  padding-bottom: 0.5em; */
+}
+
+.hint__btn:active,
+.hint__btn:focus {
+  outline: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.play__btn {
+  font-family: Marker Felt, fantasy;
+  -webkit-font-smoothing: antialiased;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: auto;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  /* height: auto; */
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-rendering: optimizeLegibility;
+  display: inline-block;
+  border: none;
+  /* background: rgb(37, 38, 51); */
+  background-color: #1c2430;
+  border-radius: 0.3em;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  /* color: rgb(37, 38, 51); */
+  color: white;
+  cursor: pointer;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.5em 1.5em 0.75em;
+  position: relative;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.play__btn:active {
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+  /* margin-top: 0.25em;
+  padding-bottom: 0.5em; */
+}
+
+.play__btn:active,
+.play__btn:focus {
+  outline: none;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+.start__btn {
+  transition: opacity 1s ease-out;
+  font-family: Marker Felt, fantasy;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  box-shadow: 2px 2px 10px #eee;
+  -webkit-font-smoothing: antialiased;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 15vh;
+  width: 70vw;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 7vh;
+  margin-bottom: 7vh;
+  font-size: 3em;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-rendering: optimizeLegibility;
+  display: inline-block;
+  border: none;
+  background-color: #1c2430;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.start__btn:active {
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+}
+
+/* Shine */
+.start__btn:after {
+  content: "";
+  top: 0;
+  left: 0;
+  transform: translateX(100%);
+  width: 90%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  animation: slide 2.3s infinite;
+  background: -moz-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(14, 2, 2, 0) 50%,
+    rgba(30, 196, 180, 0) 99%,
+    rgba(30, 196, 180, 0) 100%
+  );
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    color-stop(0%, rgba(255, 255, 255, 0)),
+    color-stop(50%, rgba(255, 255, 255, 0.8)),
+    color-stop(99%, rgba(128, 186, 232, 0)),
+    color-stop(100%, rgba(125, 185, 232, 0))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(30, 196, 180, 0) 99%,
+    rgba(30, 196, 180, 0) 100%
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(30, 196, 180, 0) 99%,
+    rgba(30, 196, 180, 0) 100%
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(30, 196, 180, 0) 99%,
+    rgba(30, 196, 180, 0) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(25, 165, 148, 0) 0%,
+    rgba(255, 255, 255, 0.37) 50%,
+    rgba(30, 196, 180, 0) 99%,
+    rgba(30, 196, 180, 0) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#007db9e8',GradientType=1 );
+}
+/* animation */
+@keyframes slide {
+  0% {
+    transform: translateX(-105%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(140%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(140%);
+    opacity: 0;
+  }
+}
+
+.delay__start {
+  transition: opacity 1s ease-out;
+  font-family: Marker Felt, fantasy;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  box-shadow: 2px 2px 10px #eee;
+  -webkit-font-smoothing: antialiased;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: 15vh;
+  width: 70vw;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 7vh;
+  margin-bottom: 7vh;
+  font-size: 3em;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-rendering: optimizeLegibility;
+  display: inline-block;
+  border: none;
+  background-color: #1c2430;
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  opacity: 50%;
+}
+
+.delay__start:active {
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
+}
+
+/* Shine */
+.delay__start:after {
+  content: "";
+  top: 0;
+  left: 0;
+  transform: translateX(100%);
+  width: 90%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
 }
